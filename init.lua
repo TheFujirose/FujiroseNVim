@@ -695,7 +695,21 @@ do
     -- clangd = {},
     -- gopls = {},
     -- pyright = {},
-    -- rust_analyzer = {},
+    rust_analyzer = {
+      settings = {
+        ['rust-analyzer'] = {
+          procMacro = {
+            ignored = {
+              -- Leptos: skip these proc macros so rust-analyzer doesn't choke on them
+              leptos_macro = {
+                -- 'component',
+                'server',
+              },
+            },
+          },
+        },
+      },
+    },
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
     --    https://github.com/pmizio/typescript-tools.nvim
