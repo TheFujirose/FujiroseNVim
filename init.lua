@@ -698,6 +698,12 @@ do
     rust_analyzer = {
       settings = {
         ['rust-analyzer'] = {
+          cargo = {
+            features = "all", -- Enable all features
+          }, 
+          rustfmt = {
+            overrideCommand = { "leptosfmt", "--stdin", "--rustfmt" },
+          },
           procMacro = {
             ignored = {
               -- Leptos: skip these proc macros so rust-analyzer doesn't choke on them
